@@ -1,21 +1,50 @@
 import React, { useState } from 'react';
+import Navbar from './Navbar';
 
 import "./App.css";
+import TextForm from './TextForm';
+import Alert from './Alert';
 
 function App() {
+
+  const [mode, setMode] = useState('light'); 
+
+  const toggleMode = ()=> {
+    if (mode === 'light') {
+      setMode('dark');
+      document.body.style.backgroundColor = 'gray';
+      showAlert("Dark Mode Enabled", "success");
+    }
+    else{
+      setMode('light');
+      document.body.style.backgroundColor = 'white';
+      showAlert("Light Mode Enabled", "success");
+
+    }
+  }
+
+  const [alert, setAlert] = useState(null);
+
+  const showAlert= (message, type)=> {
+    setAlert({
+      msg: message,
+      type: type
+    })
+
+    setTimeout(() => {
+      setAlert(null);
+      
+    }, 1500);
+  }
+
+
   return (
-    <div className="container">
-      <div className="mb-3">
-        <label for="exampleFormControlTextarea1" className="form-label">
-          Example textarea
-        </label>
-        <textarea
-          className="form-control"
-          id="exampleFormControlTextarea1"
-          rows="3"
-        ></textarea>
-      </div>
-    </div>
+    <>
+    <Navbar mode={mode} toggleMode={toggleMode}/>
+    <Alert alert={alert} />
+    <TextForm mode={mode} showAlert={showAlert} />
+     
+    </>
   );
 }
 
