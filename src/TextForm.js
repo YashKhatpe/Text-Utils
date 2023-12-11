@@ -3,9 +3,7 @@ import PropTypes from "prop-types";
 
 export default function TextForm(props) {
   const [text, setText] = useState("");
-  const [vowel, setVowel] = useState(
-    "Click the button of Word with most vowel"
-  );
+  const [vowel, setVowel] = useState("");
 
   const handleOnChange = (event) => {
     setText(event.target.value);
@@ -114,13 +112,14 @@ export default function TextForm(props) {
   };
   return (
     <>
+    <br/>
       <div
         className="container"
         style={{ color: `${props.mode === "light" ? "black" : "white"}` }}
       >
         <div className="mb-3">
           <label htmlFor="exampleFormControlTextarea1" className="form-label">
-            <h2>Enter the text to analyze1:</h2>
+            <h2>Enter the text to analyze:</h2>
           </label>
           <textarea
             className="form-control"
@@ -129,33 +128,45 @@ export default function TextForm(props) {
             id="exampleFormControlTextarea1"
             rows="10"
             style={{
-              backgroundColor: `${props.mode === "light" ? "white" : "grey"}`,
-              color: `${props.mode === "light" ? "black" : "white"}`,
+              backgroundColor: props.mode==='blue'?'#89CFF0':props.mode==='green'?'#90EE90': props.mode==='red'?'#D22730': props.mode==='yellow'?'#cfcf4e': props.mode==='light'?'white':props.mode==='dark'?'gray':'gray',
+              color: `${props.mode === "light" ? "black" : "white"}`
             }}
           ></textarea>
         </div>
         <button
-          className="btn btn-secondary mx-1 text-light"
+          className={`btn mx-1 text-light`}
           onClick={handleUpClick}
-        >
+          style={{
+            backgroundColor: props.mode==='blue'?'#89CFF0':props.mode==='green'?'#90EE90': props.mode==='red'?'#D22730': props.mode==='yellow'?'#cfcf4e': props.mode==='light'?'gray':props.mode==='dark'?'gray':'gray'
+          }}
+          >
           Convert to UpperCase{" "}
         </button>
         <button
-          className="btn btn-secondary mx-1 text-light"
+          className="btn mx-1 text-light"
           onClick={handleLoClick}
-        >
+          style={{
+            backgroundColor: props.mode==='blue'?'#89CFF0':props.mode==='green'?'#90EE90': props.mode==='red'?'#D22730': props.mode==='yellow'?'#cfcf4e': props.mode==='light'?'gray':props.mode==='dark'?'gray':'gray'
+          }}
+          >
           Convert to LowerCase{" "}
         </button>
         <button
-          className="btn btn-secondary mx-1 text-light"
+          className="btn mx-1 text-light"
           onClick={highestVowelWord}
-        >
+          style={{
+            backgroundColor: props.mode==='blue'?'#89CFF0':props.mode==='green'?'#90EE90': props.mode==='red'?'#D22730': props.mode==='yellow'?'#cfcf4e': props.mode==='light'?'gray':props.mode==='dark'?'gray':'gray'
+          }}
+          >
           Word with most vowels{" "}
         </button>
         <button
-          className="btn btn-secondary mx-1 text-light"
+          className="btn mx-1 text-light"
           onClick={handleClearClick}
-        >
+          style={{
+            backgroundColor: props.mode==='blue'?'#89CFF0':props.mode==='green'?'#90EE90': props.mode==='red'?'#D22730': props.mode==='yellow'?'#cfcf4e': props.mode==='light'?'gray':props.mode==='dark'?'gray':'gray'
+          }}
+          >
           Clear Text{" "}
         </button>
       </div>
@@ -168,7 +179,7 @@ export default function TextForm(props) {
         <p>Character Count: {text.length} characters</p>
         <p>Sentence Count: {sentenceCount} sentence</p>
         <p>Vowel Count: {totalVowelCount} vowels</p>
-        <p>Word with most vowels: {vowel}</p>
+        <p>Word with most vowels: {vowel.length > 0 ? vowel: "Click the button of Word with most vowel"}</p>
         <h2>Preview: </h2>
         <p>
           {text.length > 0
