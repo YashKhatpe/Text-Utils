@@ -32,3 +32,5 @@ To set up the project locally:
 ![alt text](image.png)
 
 ![alt text](image-1.png)
+
+![image](https://github.com/user-attachments/assets/36dedd2b-fa09-4d77-a8c1-a598910b68dc)
