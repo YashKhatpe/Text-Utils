@@ -23,7 +23,7 @@ To set up the project locally:
 
 1. **Clone the Repository**
    ```bash
-   git clone https://github.com/YashKhatpe/text-utils-website.git
+   git clone https://github.com/YashKhatpe/text-utils.git
    cd text-utils-website
    
 ## Screenshots
