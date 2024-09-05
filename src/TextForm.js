@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
 
 export default function TextForm(props) {
   const [text, setText] = useState("");
@@ -8,7 +7,7 @@ export default function TextForm(props) {
   const handleOnChange = (event) => {
     setText(event.target.value);
   };
-  const handleUpClick = (event) => {
+  const handleUpClick = () => {
     if (text == "") {
       props.showAlert("There is no text to convert", "danger");
     } else {
@@ -36,14 +35,7 @@ export default function TextForm(props) {
     }
   };
 
-  let wordCount = text.split(" ").length;
-  if (text == "") {
-    wordCount -= 1;
-  }
-
-  if (text.charAt(text.length - 1) == " ") {
-    wordCount -= 1;
-  }
+  let wordCount = text.split(/\s+/).filter((element)=>{return element.length!==0 }).length;
 
   let sentenceCount = 0;
   for (let i = 0; i < text.length; i++) {

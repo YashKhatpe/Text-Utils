@@ -76,9 +76,9 @@ function App() {
       type: type,
     });
 
-    setTimeout(() => {
-      setAlert(null);
-    }, 1500);
+    // setTimeout(() => {
+    //   setAlert(null);
+    // }, 1500);
   };
 
   const changeMode = (event)=> {
@@ -92,10 +92,12 @@ function App() {
       case "light":
         setMode("light");
         document.body.style.backgroundColor = "white";
+        showAlert("Light Mode Enabled", "light");
         break;
-      case "dark":
-        setMode("dark");
-        document.body.style.backgroundColor = "black";
+        case "dark":
+          setMode("dark");
+          document.body.style.backgroundColor = "black";
+          showAlert("Light Mode Enabled", "dark");
         break;
       case "blue":
         setMode("blue");
