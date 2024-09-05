@@ -76,9 +76,9 @@ function App() {
       type: type,
     });
 
-    // setTimeout(() => {
-    //   setAlert(null);
-    // }, 1500);
+    setTimeout(() => {
+      setAlert(null);
+    }, 1500);
   };
 
   const changeMode = (event)=> {
